@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081727">
+<title>VetNova | المكتبة الرقمية للطب البيطري</title>
+<style>
+:root{--bg:#081727;--panel:#10243a;--gold:#dfbd78;--text:#f5f7fb;--muted:#aebdcd;--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#173b58 0,transparent 36%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.7}
+button,input,select{font:inherit}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(6,18,31,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:900}.logo{width:45px;height:45px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(140deg,#f3d998,#a77b35);color:#091827;font-size:25px}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:1.4px;font-weight:500}.university{border:1px solid #dfbd7855;color:var(--gold);padding:7px 13px;border-radius:30px;font-size:12px}
+.hero{padding:58px 0 30px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:25px}.kicker{color:var(--gold);font-size:13px;font-weight:bold}.hero h1{font-size:clamp(34px,5vw,57px);line-height:1.25;margin:10px 0 14px}.hero h1 span{color:var(--gold)}.hero p{color:var(--muted);max-width:650px;margin:0 0 24px}.cta{display:inline-block;background:linear-gradient(120deg,#f0d18c,#bd9148);color:#0a1928;padding:11px 20px;border-radius:12px;font-weight:bold}.hero-visual{height:235px;border:1px solid #dfbd7855;border-radius:28px;background:linear-gradient(145deg,#173a56,#0c1e31);display:grid;place-items:center;position:relative;overflow:hidden}.hero-visual:before,.hero-visual:after{content:"";position:absolute;border:1px solid #dfbd7844;border-radius:50%;width:230px;height:230px}.hero-visual:after{width:310px;height:310px}.paw{font-size:100px;z-index:1;filter:drop-shadow(0 12px 18px #0008)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:4px 0 35px}.stat{background:#10253a;border:1px solid var(--line);border-radius:16px;padding:13px 16px}.stat strong{display:block;color:var(--gold);font-size:19px}.stat span{font-size:12px;color:var(--muted)}
+.section-title{margin:32px 0 15px}.section-title h2{font-size:24px;margin:0}.section-title p{font-size:13px;color:var(--muted);margin:4px 0}
+.year-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.year-btn{cursor:pointer;text-align:right;padding:18px;border-radius:18px;color:var(--text);border:1px solid var(--line);background:linear-gradient(145deg,#142e47,#0d2033);transition:.2s}.year-btn.active,.year-btn:hover{border-color:var(--gold);transform:translateY(-2px)}.year-no{color:var(--gold);font-size:25px;font-weight:900}.year-btn b{display:block;font-size:18px}.year-btn small{color:var(--muted)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.search{flex:1;min-width:220px;background:#0d2033;border:1px solid var(--line);border-radius:12px;padding:12px 15px;color:white;outline:none}.search:focus,select:focus{border-color:var(--gold)}select{background:#0d2033;color:white;border:1px solid var(--line);border-radius:12px;padding:0 13px;min-width:160px}
+
+.picker-panel{padding:18px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#122b43,#0c1e30);margin-top:18px}
+.picker-panel .controls{display:grid;grid-template-columns:1fr 2fr 1fr;gap:12px;margin:0}
+.picker-panel select{width:100%;min-height:50px;padding:0 14px;border-radius:12px;background:#0b1c2d;color:var(--text);border:1px solid #dfbd7855}
+.picker-hint{color:var(--muted);font-size:12px;margin:12px 2px 0}
+@media(max-width:650px){.picker-panel .controls{grid-template-columns:1fr}.picker-panel select{min-height:47px}}
+.subject-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.subject{background:linear-gradient(145deg,#122b43,#0c1e30);border:1px solid var(--line);border-radius:17px;padding:17px;min-height:145px;display:flex;flex-direction:column;justify-content:space-between;gap:13px}.subject h3{font-size:16px;margin:0 0 4px}.subject .en{color:var(--muted);font-size:12px;direction:ltr;text-align:right}.subject-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.subject-actions button{cursor:pointer;border:1px solid #dfbd7840;border-radius:10px;background:#dfbd7812;color:var(--gold);padding:8px 5px;font-size:12px}.subject-actions button:hover{background:#dfbd7828}
+.files-area{margin-top:27px;padding:20px;border-radius:18px;border:1px solid var(--line);background:#0c1e30}.files-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.files-head h3{margin:0;font-size:19px}.files-head span{font-size:12px;color:var(--gold)}.file-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.file-item{display:flex;align-items:center;gap:12px;background:#132a40;padding:13px;border-radius:12px;border:1px solid var(--line)}.pdf-icon{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:#dfbd781a;color:var(--gold);font-size:12px;font-weight:bold;flex-shrink:0}.file-item a{color:var(--text);font-size:13px}.file-item small{display:block;color:var(--muted);font-size:11px}.download{margin-right:auto;color:var(--gold)!important;font-size:12px!important}.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:28px 12px;border:1px dashed var(--line);border-radius:13px;font-size:14px}
+.info{margin:30px 0;padding:18px 20px;border-radius:16px;border:1px solid #dfbd7850;background:#10253a}.info b{color:var(--gold)}.info p{color:var(--muted);font-size:13px;margin:5px 0 0}
+footer{border-top:1px solid var(--line);padding:24px 0;margin-top:45px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:38px}.hero-visual{height:170px}.paw{font-size:75px}.subject-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.university{display:none}.nav{min-height:67px}.stats{gap:7px}.stat{padding:10px}.stat span{font-size:10px}.subject-grid,.file-list{grid-template-columns:1fr}.year-tabs{gap:9px}.year-btn{padding:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand"><div class="logo">✚</div><div>VetNova<small>VETERINARY DIGITAL LIBRARY</small></div></div><div class="university">جامعة الوادي الجديد الأهلية</div></div></header>
+<main class="wrap">
+<section class="hero"><div><div class="kicker">المكتبة الرقمية لطلاب الطب البيطري</div><h1>علمك البيطري<br><span>في مكان واحد</span></h1><p>محاضراتك وسكاشنك وملفاتك العلمية في مكتبة واحدة. اختار الفرقة والمادة ونوع المحتوى من القوائم لعرض ملفات المحاضرات والسكاشن بسهولة.</p><a class="cta" href="#library">تصفح المكتبة ←</a></div><div class="hero-visual"><div class="paw">🐾</div></div></section>
+<div class="stats"><div class="stat"><strong>فرقتان</strong><span>الأولى والثانية حاليًا</span></div><div class="stat"><strong>3 ملفات</strong><span>تمت إضافتها في التشريح</span></div><div class="stat"><strong>بدون تسجيل</strong><span>متاحة للطلاب مباشرة</span></div></div>
+<section id="library"><div class="section-title"><h2>اختر الفرقة الدراسية</h2><p>الموقع مخصص حاليًا للفرقة الأولى والثانية</p></div>
+<div class="year-tabs"><button class="year-btn active" data-year="1"><span class="year-no">01</span><b>الفرقة الأولى</b><small>First Year</small></button><button class="year-btn" data-year="2"><span class="year-no">02</span><b>الفرقة الثانية</b><small>Second Year</small></button></div>
+<div class="picker-panel">
+ <div class="controls">
+  <select id="yearSelect" aria-label="الفرقة الدراسية"><option value="1">الفرقة الأولى</option><option value="2">الفرقة الثانية</option></select>
+  <select id="subjectSelect" aria-label="المادة"></select>
+  <select id="kindSelect" aria-label="نوع المحتوى"><option value="lecture">المحاضرات</option><option value="practical">السكاشن</option></select>
+ </div>
+ <p class="picker-hint">اختار الفرقة، ثم المادة، ثم المحاضرات أو السكاشن لعرض الملفات المضافة في هذا القسم.</p>
+</div>
+<div class="files-area"><div class="files-head"><h3 id="selectedTitle">ملفات المادة</h3><span id="selectedKind">المحاضرات | Lectures</span></div><div class="file-list" id="fileList"><div class="empty">اختر المادة ونوع المحتوى لعرض الملفات.</div></div></div>
+</section>
+<div class="info"><b>📚 تحديث المكتبة</b><p>تمت إضافة ملف المنهج النظري للتشريح، وسكشن Scapula، وسكشن Humerus للفرقة الأولى. سيتم إدراج أي ملفات جديدة في المادة والقسم المناسبين ضمن تحديث الموقع القادم.</p></div>
+</main>
+<footer>VetNova © 2026 — كلية الطب البيطري | جامعة الوادي الجديد الأهلية</footer>
+<script>
+const subjects={
+"1":[["Genetics","الوراثة"],["Terminology","المصطلحات الطبية"],["General Chemistry","الكيمياء العامة"],["Anatomy","التشريح"],["Histology","علم الأنسجة"],["Biophysics","الفيزياء الحيوية"],["Animal Biology","علم الحيوان"]],
+"2":[["Anatomy","التشريح"],["Behavior of Animal Poultry and Aquatic Life","سلوك الحيوان والدواجن والحياة المائية"],["Metabolism and Body Fluids","الأيض وسوائل الجسم"],["Livestock, Poultry and Fish Farming and Production","تربية وإنتاج الماشية والدواجن والأسماك"],["Physiology","الفسيولوجيا"],["Veterinary Economics","الاقتصاد البيطري"]]};
+const materials=[
+{year:"1",subject:"Anatomy",kind:"lecture",title:"منهج التشريح النظري كامل — الفرقة الأولى",url:"files/year-1/anatomy/anatomy-full-lectures.pdf"},
+{year:"1",subject:"Anatomy",kind:"practical",title:"سكشن 1 — Scapula",url:"files/year-1/anatomy/anatomy-practical-01-scapula.pdf"},
+{year:"1",subject:"Anatomy",kind:"practical",title:"سكشن 2 — Humerus",url:"files/year-1/anatomy/anatomy-practical-02-humerus.pdf"}];
+const yearSelect=document.getElementById("yearSelect");
+const subjectSelect=document.getElementById("subjectSelect");
+const kindSelect=document.getElementById("kindSelect");
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function fillSubjects(){
+ const year=yearSelect.value;
+ subjectSelect.innerHTML=subjects[year].map(([en,ar])=>`<option value="${esc(en)}">${esc(ar)} — ${esc(en)}</option>`).join("");
+ renderFiles();
+}
+function renderFiles(){
+ const year=yearSelect.value,sub=subjectSelect.value,kind=kindSelect.value;
+ const ar=subjects[year].find(x=>x[0]===sub)?.[1]||sub;
+ document.getElementById("selectedTitle").textContent=ar+" — "+sub;
+ document.getElementById("selectedKind").textContent=kind==="lecture"?"المحاضرات | Lectures":"السكاشن | Practical";
+ const files=materials.filter(f=>f.year===year&&f.subject===sub&&f.kind===kind);
+ const box=document.getElementById("fileList");
+ box.innerHTML=files.length?files.map(f=>`<div class="file-item"><div class="pdf-icon">PDF</div><div><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a><small>ملف PDF · اضغط للعرض</small></div><a class="download" href="${esc(f.url)}" download>تحميل ↓</a></div>`).join(""):'<div class="empty">لا توجد ملفات مضافة في هذا القسم حتى الآن.<br>عند إضافة ملفات جديدة ستظهر هنا تلقائيًا بعد تحديث الموقع.</div>';
+}
+yearSelect.addEventListener("change",fillSubjects);
+subjectSelect.addEventListener("change",renderFiles);
+kindSelect.addEventListener("change",renderFiles);
+fillSubjects();
+</script>
+</body></html>
